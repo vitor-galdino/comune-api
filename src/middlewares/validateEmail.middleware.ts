@@ -4,9 +4,9 @@ import { AppDataSource } from '../data-source';
 import { AppError } from '../errors/AppError';
 
 export const validateEmail = (entity: any) => async (req: Request, res: Response, next: NextFunction): Promise<Response | void> => {
-  const customerRepos: Repository<any> = AppDataSource.getRepository(entity);
+  const repos: Repository<any> = AppDataSource.getRepository(entity);
 
-  const isExist = await customerRepos.findOne({
+  const isExist = await repos.findOne({
     where: { email: req.body.email }
   });
 
