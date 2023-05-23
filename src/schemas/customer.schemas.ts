@@ -1,4 +1,4 @@
-import { string, z } from 'zod';
+import { z } from 'zod';
 
 export const customerSchema = z.object({
   fullName: z.string().min(3).max(120),
@@ -9,7 +9,7 @@ export const customerSchema = z.object({
 export const customerResponseSchema = z.object({
   id: z.number(),
   ...customerSchema.shape,
-  createdAt: string(),
+  createdAt: z.string(),
 });
 
 export const allCustomersSchema = customerResponseSchema.array();
