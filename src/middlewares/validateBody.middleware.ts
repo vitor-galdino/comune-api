@@ -5,5 +5,5 @@ export const validateBody = (schema: ZodTypeAny) => (req: Request, res: Response
   const validated = schema.parse(req.body);
   req.body = validated;
 
-  next();
+  return next();
 };

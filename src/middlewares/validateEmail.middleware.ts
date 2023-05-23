@@ -13,5 +13,5 @@ export const validateEmail = (entity: any) => async (req: Request, res: Response
   if (isExist) {
     throw new AppError('Email already exists', 409);
   }
-  next();
+  return next();
 }; 
