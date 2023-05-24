@@ -6,9 +6,12 @@ import { AppError } from '../errors/AppError';
 
 export const ensureContactExist = async (req: Request, res: Response, next: NextFunction): Promise<Response | void> => {
   const contactRepos: Repository<Contact> = AppDataSource.getRepository(Contact);
-  const id: number = parseInt(req.params.contactId);
+  const contactId: number = parseInt(req.params.contactId);
+  const customerId: number = parseInt(req.params.customerId);
 
-  const contactFound = await contactRepos.findOneBy({ id });
+  const contactFound = await contactRepos.findOne({
+    where: { id: contactId, customer: { id: customerId } }
+  });
 
   if (!contactFound) {
     throw new AppError('Contact not found', 404);
