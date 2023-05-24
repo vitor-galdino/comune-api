@@ -11,7 +11,7 @@ export const ensureCustomerExist = async (req: Request, res: Response, next: Nex
   const customerFound = await customerRepos.findOneBy({ id });
 
   if (!customerFound) {
-    throw new AppError('User not found', 404);
+    throw new AppError('Customer not found', 404);
   }
 
   return next();
