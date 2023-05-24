@@ -7,7 +7,9 @@
   "license": "MIT",
   "scripts": {
     "dev": "tsnd --cls --rs --ignore-watch node-modules src/server.ts",
-    "typeorm": "typeorm-ts-node-commonjs"
+    "typeorm": "typeorm-ts-node-commonjs",
+    "generate": "typeorm-ts-node-commonjs migration:generate",
+    "migrate": "typeorm-ts-node-commonjs migration:run -d ./src/data-source"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -15,6 +17,7 @@
     "express": "^4.18.2",
     "express-async-errors": "^3.1.1",
     "jsonwebtoken": "^9.0.0",
+    "jspdf": "^2.5.1",
     "pg": "^8.11.0",
     "reflect-metadata": "^0.1.13",
     "typeorm": "^0.3.16",
