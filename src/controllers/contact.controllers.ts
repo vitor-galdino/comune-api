@@ -1,7 +1,8 @@
 import { Request, Response } from 'express';
 import { createContactService } from '../services/contacts/createContact.service';
-import { listContactsByCustomerService } from '../services/contacts/listContactsByCustomer.service';
 import { getContactByCustomerService } from '../services/contacts/getContactByCustomer.service';
+import { listContactsByCustomerService } from '../services/contacts/listContactsByCustomer.service';
+import { updateContactService } from '../services/contacts/updateContact.service';
 
 export const createContactController = async (req: Request, res: Response): Promise<Response> => {
   const customerId: number = parseInt(req.params.customerId);
@@ -19,5 +20,11 @@ export const getContactByCustomerController = async (req: Request, res: Response
   const customerId: number = parseInt(req.params.customerId);
   const contactId: number = parseInt(req.params.contactId);
   const contactData = await getContactByCustomerService(customerId, contactId);
+  return res.json(contactData);
+};
+
+export const updateContactController = async (req: Request, res: Response): Promise<Response> => {
+  const contactId: number = parseInt(req.params.contactId);
+  const contactData = await updateContactService(contactId, req.body);
   return res.json(contactData);
 };
