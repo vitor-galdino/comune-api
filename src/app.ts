@@ -8,6 +8,6 @@ export const app: Application = express();
 app.use(express.json());
 
 app.use('/customers', customersRoutes);
-app.use('/contacts', contactsRoutes);
+app.use('/customers/:customerId/contacts', contactsRoutes);
 
 app.use(handleErrors);
