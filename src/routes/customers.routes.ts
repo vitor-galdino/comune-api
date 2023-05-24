@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createCustomerController, getCustomerController, listCustomersController, updateCustomerController } from '../controllers/customer.controllers';
+import { createCustomerController, deleteCustomerController, getCustomerController, listCustomersController, updateCustomerController } from '../controllers/customer.controllers';
 import { Customer } from '../entities/customer.entity';
 import { ensureCustomerExist } from '../middlewares/ensureCustomerExist.middleware';
 import { validateBody } from '../middlewares/validateBody.middleware';
@@ -12,3 +12,4 @@ customersRoutes.post('', validateBody(customerSchema), validateEmail(Customer), 
 customersRoutes.get('', listCustomersController);
 customersRoutes.get('/:customerId', ensureCustomerExist, getCustomerController);
 customersRoutes.patch('/:customerId', validateBody(customerUpdateSchema), ensureCustomerExist, validateEmail(Customer), updateCustomerController);
+customersRoutes.delete('/:customerId', ensureCustomerExist, deleteCustomerController);
