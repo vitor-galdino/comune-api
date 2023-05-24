@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import { createCustomerService } from '../services/customer/createCustomer.service';
-import { getCustomerService } from '../services/customer/getCustomer.service';
-import { listCustomersService } from '../services/customer/listCustomers.service';
+import { createCustomerService } from '../services/customers/createCustomer.service';
+import { getCustomerService } from '../services/customers/getCustomer.service';
+import { listCustomersService } from '../services/customers/listCustomers.service';
 
 export const createCustomerController = async (req: Request, res: Response): Promise<Response> => {
   const customerData = await createCustomerService(req.body);
