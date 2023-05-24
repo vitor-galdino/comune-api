@@ -13,3 +13,5 @@ export const customerResponseSchema = z.object({
 });
 
 export const allCustomersSchema = customerResponseSchema.array();
+
+export const customerUpdateSchema = customerSchema.partial();
