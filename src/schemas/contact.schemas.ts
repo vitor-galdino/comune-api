@@ -13,3 +13,5 @@ export const contactResponseSchema = z.object({
 });
 
 export const allContactsSchema = contactResponseSchema.array();
+
+export const contactUpdateSchema = contactSchema.partial();
