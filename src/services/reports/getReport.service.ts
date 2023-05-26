@@ -2,15 +2,15 @@ import jsPDF from 'jspdf';
 import { Repository } from 'typeorm';
 import { AppDataSource } from '../../data-source';
 import { Contact } from '../../entities/contact.entity';
-import { Customer } from '../../entities/user.entity';
+import { User } from '../../entities/user.entity';
 
 export const getReportService = async (userId: number): Promise<[Buffer, string]> => {
-  const userRepos: Repository<Customer> = AppDataSource.getRepository(Customer);
+  const userRepos: Repository<User> = AppDataSource.getRepository(User);
   const contactRepos: Repository<Contact> = AppDataSource.getRepository(Contact);
 
   const userFound = await userRepos.findOneBy({ id: userId });
   const contactFound = await contactRepos.find({
-    where: { customer: { id: userId } }
+    where: { user: { id: userId } }
   });
 
   const doc = new jsPDF();

@@ -10,7 +10,7 @@ export const ensureContactExist = async (req: Request, res: Response, next: Next
   const userId: number = parseInt(req.params.userId);
 
   const contactFound = await contactRepos.findOne({
-    where: { id: contactId, customer: { id: userId } }
+    where: { id: contactId, user: { id: userId } }
   });
 
   if (!contactFound) {

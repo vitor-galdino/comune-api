@@ -1,8 +1,8 @@
 import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { Contact } from './contact.entity';
 
-@Entity('customer')
-export class Customer {
+@Entity('user')
+export class User {
 
   @PrimaryGeneratedColumn()
   id: number;
@@ -19,6 +19,6 @@ export class Customer {
   @CreateDateColumn({ type: 'date' })
   createdAt: string;
 
-  @OneToMany(() => Contact, contact => contact.customer)
+  @OneToMany(() => Contact, contact => contact.user)
   contacts: Contact[];
 }

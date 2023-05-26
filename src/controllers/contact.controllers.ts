@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
 import { createContactService } from '../services/contacts/createContact.service';
 import { deleteContactService } from '../services/contacts/deleteContact.service';
-import { getContactByUserService } from '../services/contacts/getContactByCustomer.service';
-import { listContactsByUserService } from '../services/contacts/listContactsByCustomer.service';
+import { getContactByUserService } from '../services/contacts/getContactByUser.service';
+import { listContactsByUserService } from '../services/contacts/listContactsByUser.service';
 import { updateContactService } from '../services/contacts/updateContact.service';
 
 export const createContactController = async (req: Request, res: Response): Promise<Response> => {

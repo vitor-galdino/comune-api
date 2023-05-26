@@ -8,7 +8,7 @@ export const getContactByUserService = async (userId: number, contactId: number)
   const contactRepos: Repository<Contact> = AppDataSource.getRepository(Contact);
 
   const contact = await contactRepos.findOne({
-    where: { id: contactId, customer: { id: userId } }
+    where: { id: contactId, user: { id: userId } }
   });
 
   return contactResponseSchema.parse(contact);

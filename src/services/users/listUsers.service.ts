@@ -1,13 +1,13 @@
 import { Repository } from 'typeorm';
 import { AppDataSource } from '../../data-source';
-import { Customer } from '../../entities/user.entity';
+import { User } from '../../entities/user.entity';
 import { tAllUsers } from '../../interfaces/user.interfaces';
-import { allCustomersSchema } from '../../schemas/user.schemas';
+import { allUsersSchema } from '../../schemas/user.schemas';
 
 export const listUsersService = async (): Promise<tAllUsers> => {
-  const userRepos: Repository<Customer> = AppDataSource.getRepository(Customer);
+  const userRepos: Repository<User> = AppDataSource.getRepository(User);
 
-  const customersFound = await userRepos.find();
+  const usersFound = await userRepos.find();
 
-  return allCustomersSchema.parse(customersFound);
+  return allUsersSchema.parse(usersFound);
 };
