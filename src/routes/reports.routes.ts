@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { getReportController } from '../controllers/report.controllers';
-import { ensureCustomerExist } from '../middlewares/ensureCustomerExist.middleware';
+import { ensureUserExist } from '../middlewares/ensureUserExist.middleware';
 
 export const reportsRoutes: Router = Router();
 
-reportsRoutes.get('/:customerId', ensureCustomerExist, getReportController);
+reportsRoutes.get('/:userId', ensureUserExist, getReportController);

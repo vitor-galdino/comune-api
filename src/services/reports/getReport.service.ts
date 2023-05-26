@@ -2,15 +2,15 @@ import jsPDF from 'jspdf';
 import { Repository } from 'typeorm';
 import { AppDataSource } from '../../data-source';
 import { Contact } from '../../entities/contact.entity';
-import { Customer } from '../../entities/customer.entity';
+import { Customer } from '../../entities/user.entity';
 
-export const getReportService = async (customerId: number): Promise<[Buffer, string]> => {
-  const customerRepos: Repository<Customer> = AppDataSource.getRepository(Customer);
+export const getReportService = async (userId: number): Promise<[Buffer, string]> => {
+  const userRepos: Repository<Customer> = AppDataSource.getRepository(Customer);
   const contactRepos: Repository<Contact> = AppDataSource.getRepository(Contact);
 
-  const customerFound = await customerRepos.findOneBy({ id: customerId });
+  const userFound = await userRepos.findOneBy({ id: userId });
   const contactFound = await contactRepos.find({
-    where: { customer: { id: customerId } }
+    where: { customer: { id: userId } }
   });
 
   const doc = new jsPDF();
@@ -31,10 +31,10 @@ export const getReportService = async (customerId: number): Promise<[Buffer, str
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(12);
 
-  doc.text(`Nome: ${customerFound!.fullName}`, 20, 40);
-  doc.text(`Email: ${customerFound!.email}`, 20, 50);
-  doc.text(`Telefone: ${customerFound!.phone}`, 20, 60);
-  doc.text(`Data de Criação: ${customerFound!.createdAt}`, 20, 70);
+  doc.text(`Nome: ${userFound!.fullName}`, 20, 40);
+  doc.text(`Email: ${userFound!.email}`, 20, 50);
+  doc.text(`Telefone: ${userFound!.phone}`, 20, 60);
+  doc.text(`Data de Criação: ${userFound!.createdAt}`, 20, 70);
 
   doc.setLineWidth(0.5);
   doc.line(10, 75, 200, 75);
@@ -64,5 +64,5 @@ export const getReportService = async (customerId: number): Promise<[Buffer, str
     }
   });
 
-  return [Buffer.from(doc.output('arraybuffer')), customerFound!.fullName];
+  return [Buffer.from(doc.output('arraybuffer')), userFound!.fullName];
 };
