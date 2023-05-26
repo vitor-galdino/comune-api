@@ -1,8 +1,8 @@
 {
-  "name": "customer-tracker-server",
+  "name": "comune-server",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:vitor-galdino/customer-tracker-server.git",
+  "repository": "git@github.com:vitor-galdino/comune-server.git",
   "author": "vitor-galdino <httpvittor@gmail.com>",
   "license": "MIT",
   "scripts": {
