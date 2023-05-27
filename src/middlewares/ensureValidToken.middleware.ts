@@ -16,8 +16,6 @@ export const ensureValidToken = (req: Request, res: Response, next: NextFunction
     if (err) {
       throw new AppError(err.message, 401);
     }
-
-    console.log(decoded.id);
     res.locals.userId = decoded.id;
   });
 

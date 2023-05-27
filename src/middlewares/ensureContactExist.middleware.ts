@@ -7,7 +7,7 @@ import { AppError } from '../errors/AppError';
 export const ensureContactExist = async (req: Request, res: Response, next: NextFunction): Promise<Response | void> => {
   const contactRepos: Repository<Contact> = AppDataSource.getRepository(Contact);
   const contactId: number = parseInt(req.params.contactId);
-  const userId: number = parseInt(req.params.userId);
+  const userId: number = res.locals.userId;
 
   const contactFound = await contactRepos.findOne({
     where: { id: contactId, user: { id: userId } }

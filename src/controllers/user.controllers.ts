@@ -10,19 +10,19 @@ export const createUserController = async (req: Request, res: Response): Promise
 };
 
 export const getUserController = async (req: Request, res: Response): Promise<Response> => {
-  const id: number = parseInt(req.params.userId);
+  const id: number = res.locals.userId;
   const userData = await getUserService(id);
   return res.json(userData);
 };
 
 export const updateUserController = async (req: Request, res: Response): Promise<Response> => {
-  const id: number = parseInt(req.params.userId);
+  const id: number = res.locals.userId;
   const userData = await updateUserService(id, req.body);
   return res.json(userData);
 };
 
 export const deleteUserController = async (req: Request, res: Response): Promise<Response> => {
-  const id: number = parseInt(req.params.userId);
+  const id: number = res.locals.userId;
   await deleteUserService(id);
   return res.status(204).send();
 };

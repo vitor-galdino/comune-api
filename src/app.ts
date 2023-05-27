@@ -16,9 +16,9 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.use('/users', usersRoutes);
 app.use('/login', loginRoutes);
-app.use('/users/:userId/contacts', contactsRoutes);
+app.use('/users', usersRoutes);
+app.use('/users/contacts', contactsRoutes);
 app.use('/reports', reportsRoutes);
 
 app.use(handleErrors);

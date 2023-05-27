@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { getReportController } from '../controllers/report.controllers';
-import { ensureUserExist } from '../middlewares/ensureUserExist.middleware';
+import { ensureValidToken } from '../middlewares/ensureValidToken.middleware';
 
 export const reportsRoutes: Router = Router();
 
-reportsRoutes.get('/:userId', ensureUserExist, getReportController);
+reportsRoutes.get('', ensureValidToken, getReportController);
