@@ -18,7 +18,7 @@ export const getReportService = async (userId: number): Promise<[Buffer, string]
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(18);
 
-  doc.text('Relatório do Cliente', 10, 10);
+  doc.text('Relatório Pessoal', 10, 10);
 
   doc.setLineWidth(0.5);
   doc.line(10, 15, 200, 15);
@@ -26,7 +26,7 @@ export const getReportService = async (userId: number): Promise<[Buffer, string]
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(14);
 
-  doc.text('Dados do Cliente', 10, 30);
+  doc.text('Dados Pessoais', 10, 30);
 
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(12);
