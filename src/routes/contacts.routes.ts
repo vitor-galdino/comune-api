@@ -1,16 +1,14 @@
 import { Router } from 'express';
-import { createContactController, deleteContactController, getContactByCustomerController, listContactsByCustomerController, updateContactController } from '../controllers/contact.controllers';
-import { Contact } from '../entities/contact.entity';
+import { createContactController, deleteContactController, getContactByUserController, listContactsByUserController, updateContactController } from '../controllers/contact.controllers';
 import { ensureContactExist } from '../middlewares/ensureContactExist.middleware';
-import { ensureCustomerExist } from '../middlewares/ensureCustomerExist.middleware';
+import { ensureValidToken } from '../middlewares/ensureValidToken.middleware';
 import { validateBody } from '../middlewares/validateBody.middleware';
-import { validateEmail } from '../middlewares/validateEmail.middleware';
 import { contactSchema, contactUpdateSchema } from '../schemas/contact.schemas';
 
 export const contactsRoutes: Router = Router({ mergeParams: true });
 
-contactsRoutes.post('', validateBody(contactSchema), validateEmail(Contact), ensureCustomerExist, createContactController);
-contactsRoutes.get('', ensureCustomerExist, listContactsByCustomerController);
-contactsRoutes.get('/:contactId', ensureCustomerExist, ensureContactExist, getContactByCustomerController);
-contactsRoutes.patch('/:contactId', validateBody(contactUpdateSchema), ensureCustomerExist, validateEmail(Contact), ensureContactExist, updateContactController);
-contactsRoutes.delete('/:contactId', ensureCustomerExist, ensureContactExist, deleteContactController);
+contactsRoutes.post('', validateBody(contactSchema), ensureValidToken, createContactController);
+contactsRoutes.get('', ensureValidToken, listContactsByUserController);
+contactsRoutes.get('/:contactId', ensureValidToken, ensureContactExist, getContactByUserController);
+contactsRoutes.patch('/:contactId', validateBody(contactUpdateSchema), ensureValidToken, ensureContactExist, updateContactController);
+contactsRoutes.delete('/:contactId', ensureValidToken, ensureContactExist, deleteContactController);

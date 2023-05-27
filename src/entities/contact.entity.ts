@@ -1,5 +1,5 @@
 import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { Customer } from './customer.entity';
+import { User } from './user.entity';
 
 @Entity('contact')
 export class Contact {
@@ -10,7 +10,7 @@ export class Contact {
   @Column({ length: 120 })
   fullName: string;
 
-  @Column({ length: 45, unique: true })
+  @Column({ length: 45 })
   email: string;
 
   @Column({ length: 14 })
@@ -19,6 +19,6 @@ export class Contact {
   @CreateDateColumn({ type: 'date' })
   createdAt: string;
 
-  @ManyToOne(() => Customer, customer => customer.contacts)
-  customer: Customer;
+  @ManyToOne(() => User, user => user.contacts)
+  user: User;
 }
