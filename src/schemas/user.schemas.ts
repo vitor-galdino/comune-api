@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { contactResponseSchema } from './contact.schemas';
 
 export const userSchema = z.object({
   fullName: z.string().min(3).max(120),
@@ -12,6 +13,11 @@ export const userResponseSchema = z.object({
   ...userSchema.shape,
   createdAt: z.string(),
 }).omit({ password: true });
+
+export const userAndContactsSchema = z.object({
+  ...userResponseSchema.shape,
+  contacts: contactResponseSchema.array()
+});
 
 export const allUsersSchema = userResponseSchema.array();
 
