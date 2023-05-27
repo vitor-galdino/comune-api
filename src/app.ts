@@ -3,6 +3,7 @@ import express, { Application } from 'express';
 import 'express-async-errors';
 import { handleErrors } from './middlewares/handleErrors.middleware';
 import { contactsRoutes } from './routes/contacts.routes';
+import { loginRoutes } from './routes/login.routes';
 import { reportsRoutes } from './routes/reports.routes';
 import { usersRoutes } from './routes/users.routes';
 
@@ -16,6 +17,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.use('/users', usersRoutes);
+app.use('/login', loginRoutes);
 app.use('/users/:userId/contacts', contactsRoutes);
 app.use('/reports', reportsRoutes);
 
