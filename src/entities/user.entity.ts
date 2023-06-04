@@ -23,7 +23,7 @@ export class User {
   @CreateDateColumn({ type: 'date' })
   createdAt: string;
 
-  @OneToMany(() => Contact, contact => contact.user)
+  @OneToMany(() => Contact, contact => contact.user, { cascade: true })
   contacts: Contact[];
 
   @BeforeInsert()
