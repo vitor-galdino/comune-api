@@ -11,7 +11,7 @@ export const app: Application = express();
 app.use(express.json());
 
 const corsOptions = {
-  origin: 'http://localhost:3001'
+  origin: 'https://comune.vercel.app'
 };
 
 app.use(cors(corsOptions));
