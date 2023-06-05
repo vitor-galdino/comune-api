@@ -6,7 +6,12 @@
     <br>
 </blockquote>
 
-<br>
+<blockquote>
+    
+This repository contains the code for the back-end of the application. The front-end code can be found in the [Comune repository](https://github.com/vitor-galdino/comune-app).
+    
+</blockquote>
+
 <br>
 
 <h2>Features</h2>
@@ -21,7 +26,7 @@
 
 <h2>Live Version</h2>
 
-Visit the live version of the application hosted at [Comune App - Website](https://comune.vercel.app/) to see it in action.
+Visit the live version of the application hosted at [Comune - Website](https://comune.vercel.app/) to see it in action.
 
 <br>
 
