@@ -7,6 +7,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "tsnd --cls --rs --ignore-watch node-modules src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
     "typeorm": "typeorm-ts-node-commonjs",
     "generate": "typeorm-ts-node-commonjs migration:generate",
     "migrate": "typeorm-ts-node-commonjs migration:run -d ./src/data-source"
