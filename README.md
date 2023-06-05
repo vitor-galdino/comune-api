@@ -10,7 +10,6 @@
 <br>
 
 <h2>Features</h2>
-<hr>
 
 - Secure registration and login system.
 - Personal dashboard to manage contacts.
@@ -21,14 +20,12 @@
 <br>
 
 <h2>Live Version</h2>
-<hr>
 
 Visit the live version of the application hosted at [Comune App - Website](https://comune.vercel.app/) to see it in action.
 
 <br>
 
 <h2>Configuration</h2>
-<hr>
 
 Before starting to use the project, it is necessary to configure some environment variables. Create a `.env` file in the root of the project with the following information:
 
@@ -42,7 +39,6 @@ Replace `<user>`, `<password>`, `<host>`, `<port>` and `<database>` with your Po
 <br>
 
 <h2>Installation</h2>
-<hr>
 
 Installing and running the project is easy and fast. Just follow these steps:
 
@@ -55,7 +51,6 @@ Installing and running the project is easy and fast. Just follow these steps:
 <br>
 
 <h2>Database Commands</h2>
-<hr>
 
 The project includes some useful commands for managing the database. Here is a list of available commands:
 
@@ -72,7 +67,6 @@ yarn migrate
 <br>
 
 <h2>Technologies used</h2>
-<hr>
 
 - [Node.js](https://nodejs.org/): server-side JavaScript runtime environment for building scalable applications.
 - [TypeScript](https://www.typescriptlang.org/): typed programming language that increases code productivity and readability.
@@ -83,7 +77,6 @@ yarn migrate
 <br>
 
 <h2>Contributing</h2>
-<hr>
 
 To contribute to this project, please follow these guidelines:
 
@@ -96,6 +89,5 @@ To contribute to this project, please follow these guidelines:
 <br>
 
 <h2>Contact</h2>
-<hr>
 
 If you have any questions or suggestions about this project, please contact [Vitor Galdino](https://linkedin.com.br/in/vitorgaldino/).
