@@ -4,7 +4,7 @@ import { AppDataSource } from './data-source';
 
 AppDataSource.initialize().then(() => {
   console.log('Database connected!');
-  const PORT: string | number = process.env.SERVER_PORT || 3000;
+  const PORT: string | number = process.env.PORT || 3000;
 
   app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}/ 🚀`);
