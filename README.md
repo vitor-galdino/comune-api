@@ -571,6 +571,12 @@ To contribute to this project, please follow these guidelines:
 
 <br>
 
+<h2>License</h2>
+
+This project is licensed under the terms of the [MIT license](https://github.com/vitor-galdino/comune-server/blob/main/LICENSE).
+
+<br>
+
 <h2>Contact</h2>
 
 If you have any questions or suggestions about this project, please contact [Vitor Galdino](https://linkedin.com.br/in/vitorgaldino/).
