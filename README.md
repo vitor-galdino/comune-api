@@ -1,4 +1,4 @@
-<h1 align="center">Comune App</h1>
+<h1 align="center">Comune Server</h1>
 
 <blockquote>
     <br>
